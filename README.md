@@ -1,0 +1,1 @@
+ruby -r "./script.rb" -e "main"
