@@ -1,0 +1,20 @@
+html, body {
+	width: 100vw;
+	color: #4f4b49;
+	display: flex;
+	flex-wrap: wrap;
+/*	-webkit-flex: 1; 
+    -ms-flex: 1; 
+    flex: 1;*/
+}
+
+h1{font-size: 4rem;}
+
+img.thumb{
+	min-height: 50px;
+	height: 50px;
+	margin: 5px;
+}
+/*.block {display: block;}
+.inline {display: flex;}*/
+

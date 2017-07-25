@@ -6,4 +6,9 @@ gem 'poltergeist'
 gem 'rake'
 gem 'whenever', :require => false
 gem 'selenium-webdriver'
-gem 'random-word', '~> 1.3'
+gem 'google-api-client'
+gem 'google-drive'
+gem 'sinatra'
+gem "sinatra-cross_origin", "~> 0.3.1"
+gem 'rerun'
+gem 'rb-fsevent'

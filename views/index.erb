@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<title>Pitchandikulam Forest Image Database</title>
+    <link rel="shortcut icon" href="img/Pitchandikulam_forest_LOGO.ico" type="favicon.ico">
+
+     <link rel="stylesheet"  type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/herbarium.css">
+     <link rel="stylesheet" type="text/css" href="css/jon.css">
+    <link rel="stylesheet" href="bower_components/ngprogress/ngProgress.css">
+
+     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+ </head>
+
+<body ng-controller='MainCtrl' >
+
+    <!-- <div ng-repeat='age in ages' > -->
+        
+        <div ng-repeat='book in books' >
+            <div ng-repeat='(key, value) in book' >
+                <img class='thumb' src="{{value.img}}" />
+            </div>
+        </div>
+    <!-- </div> -->
+             
+<script src="js/angular.min.js"></script>
+<script src="bower_components/ngprogress/build/ngprogress.js"></script>
+<script type="text/javascript" src="js/basics/services/services.js"></script>
+<script type="text/javascript" src="js/basics/app.js"></script>
+<script type="text/javascript" src="js/basics/controllers/mainController.js"></script> 
+
+    
+<script>
+
+</script>
+
+</body>
+
+</html>

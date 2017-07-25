@@ -3,7 +3,6 @@
 require 'capybara'
 require 'capybara/poltergeist'
 require 'capybara/dsl'
-require 'random_word'
 
 require_relative('./mail')
 require_relative('./methods')
@@ -109,46 +108,35 @@ def create_lookups
 				book['to'] = key[key.index("-")+1..-1].to_i
 			elsif key.include?("+")
 				book['from'] = key[0..key.index("+")].to_i
-				book['to'] = ""
+				book['to'] = 'not specified'
 			elsif key.is_a?(Integer)
 				book['from'] = key.to_i
-				book['to'] = ""
+				book['to'] = 'not specified'
 			else
 				book['from']='not specified'
-				book['to']=''
+				book['to']='not specified'
 			end
 			$books[book['from']] = [] if $books[book['from']].nil?
 			$books[book['from']]  << book
 		end
 	end
 	$sorted = {}
-	$books.each_pair{|k,v| $sorted[k] = v.map{|t|t['title']}.uniq }
+	$books.each_pair{|k,v| $sorted[k] = v.select{|t|t['title']}.uniq }
 
-	p "Adult: #{$sorted['not specified']}"
+	# p "Adult: #{$sorted['not specified']}"
 
-	($sorted.keys-["not specified"]).map{|b|b.to_i}.sort.each do |k|
-		p "------"
-		p "#{k}: #{$sorted[k]}"
+	# ($sorted.keys-["not specified"]).map{|b|b.to_i}.sort.each do |k|
+	# 	p "------"
+	# 	p "#{k}: #{$sorted[k]}"
 		
-	end
-	
-	# keys = $books.keys.sort
-	# keys.each do |key|
-	# 	if key.include?("-")
-	# 		from = key[0..key.index("-")].to_i
-	# 		to = key[key.index("-")+1..-1].to_i
-	# 	elsif key.include?("+")
-	# 		from = key[0..key.index("+")].to_i
-	# 		to = ""
-	# 	elsif key.to_i.is_a?(Integer)
-	# 		from = key.to_i
-	# 		to = ""
-	# 	else
-	# 		from=''
-	# 		to=''
-	# 	end
-	# 	p "#{key}= from: #{from} to #{to}"
 	# end
+	# p $books
+	# p $sorted
+	$sorted
+end
+
+def get_books_by_age
+	create_lookups
 end
 
 def populate_booklists
